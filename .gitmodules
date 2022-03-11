@@ -1,0 +1,4 @@
+[submodule "jcbnardoneweb/public"]
+	path = jcbnardoneweb/public
+	url = https://github.com/xjtn18/xjtn18.github.io.git
+	branch = main

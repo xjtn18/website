@@ -1,0 +1,4 @@
+baseURL = 'https://xjtn18.github.io'
+languageCode = 'en-us'
+title = 'jcb nardone website'
+theme = 'PaperMod'
