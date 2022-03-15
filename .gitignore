@@ -1,0 +1,6 @@
+tags
+*.swp
+*.pyc
+*.stackdump
+*.iml
+.DS_Store

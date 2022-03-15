@@ -45,13 +45,6 @@ First, let's take a look at the C++ makefile.
 </h2>
 
 ```make
-##########################################################################
-# Author: Jacob Nardone
-# File Type: GNU Makefile
-# Date Created: 4/9/2021
-# Description: Flexible C makefile for ranging project file structures.
-##########################################################################
-
 #----------------------------------------------------------------#
 #--------------------- Project Specifics ------------------------#
 # name of dir that stores source files
@@ -117,23 +110,26 @@ And as promised, below is the Java makefile.
 </h2>
 
 ```make
-# Recursive wildcard function - leave as is.
-
 #----------------------------------------------------------------#
 #--------------------- Project Specifics ------------------------#
+# Path to your program start class relative to source directory
 mainclass :=
+# Full path to you java source code / packages
 srcdir :=
+# Name of the directory storing your class files
 bindir :=
+# Path(s) to all class files needed to compile and run
 clspth :=
 #----------------------------------------------------------------#
 #----------------------------------------------------------------#
 
 modlist := $(bindir)/modlist
+# Recursive wildcard function - leave as is.
 rwildcard = $(foreach d,$(wildcard $(1:=/*)), $(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
 sources = $(call rwildcard, $(srcdir), *.java)
 .PHONY: run runonly clean
 
-# builds a dummy file to compare timestamps with modified files
+# compares timestamps of the dummy file (modlist) with each source file
 $(modlist): $(sources) | $(bindir)
 	@ echo Compiling $(notdir $?) ...
 	@ javac -d $(bindir) -classpath $(clspth) $?
